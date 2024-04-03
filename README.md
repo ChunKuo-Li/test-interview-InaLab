@@ -14,18 +14,18 @@ All the 7 original requirements are labeled and listed in the 2nd half of this p
    * "Dockerfile" --->>> this satisfies [[Req_1: Provide a `Dockerfile` to build and run the application.]]
    * "docker-compose.yml" --->>> this satisfies [[Req_3: Provide a `docker-compose.yml` file to run the application and set a custom string using an environment variable.]] & it contains a section for Nginx service in this file, thus it also satisfies [[Req_6: Idea: Try the [nginx](https://hub.docker.com/_/nginx) or [traefik](https://hub.docker.com/_/traefik) Docker 
    image ran from the same Docker Compose file as the application.]]
-   * ".env.prod" --->>> this is a environment file use for passing environment variable 'MESSAGE' into 'docker-compose.yml' from the EC2 host. I had tried to use the flag '-e' to set environment variable from CLI but it failed on my EC2 instance. I therefore switched to use this environment file to make it work instead. This partially satisfies [[Req_3: Provide a `docker-compose.yml` file to run the application and set a custom
+   * ".env.prod" --->>> this is an environment file use for passing environment variable 'MESSAGE' into 'docker-compose.yml' from the EC2 host. I had tried to use the flag '-e' to set environment variable from CLI but it failed on my EC2 instance. I therefore switched to use this environment file to make it work instead. This partially satisfies [[Req_3: Provide a `docker-compose.yml` file to run the application and set a custom
    string using an environment variable.]]
    * "parse_json.py" --->>> this satisfies [[Req_4: Provide a script or code in a language or tool of your choice that will parse the data returned from <http://localhost:5000/data> and create a file in a `files/` sub-directory named `<id>.txt` with the _name_ as the contents of the
     file.]]
    * "nginx.conf" --->>> this satisfies [[Req_6: Idea: Try the [nginx](https://hub.docker.com/_/nginx) or [traefik](https://hub.docker.com/_/traefik) Docker 
    image ran from the same Docker Compose file as the application.]]
-5. Run Docker compose, do:
-   "sudo docker compose build && sudo docker compose up"
+5. Run Docker compose with the environmen file '.env.prod', do:
+   "sudo docker compose build && sudo docker compose --env-file .env.prod up"
 6. Open the 2nd terminal that connects to the same EC2 instance, do:
    "curl http://localhost:5000"
 7. On the same 2nd terminal, it will return:
-   "Hello, World!" --->>> this satisfies [[Req_2: Modify the application to replace _Hello, World!_ with an optional string set
+   "prod_ChunKuo_Li" --->>> this satisfies [[Req_2: Modify the application to replace _Hello, World!_ with an optional string set
     using an environment variable and defaulting to _Hello, World!]] & [[Req_6: Idea: Try the nginx or traefik Docker image ran from the same Docker Compose file as the application.]]
 8. Still on the 2nd terminal, do:
    "curl http://localhost:5000/data > ~/test-interview-InaLab/data.json"
