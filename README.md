@@ -10,7 +10,7 @@ All the 7 original requirements are labeled and listed in the 2nd half of this p
    team.]]
 3. Change into the working directory:
    "cd test-interview-InaLab"
-4. In this working directory, there are 7 files with 4 major ones mentioned here, and 1 sub-directory '/files':
+4. In this working directory, there are 8 files with 5 major ones mentioned here, and 1 sub-directory '/files':
    * "Dockerfile" --->>> this satisfies [[Req_1: Provide a `Dockerfile` to build and run the application.]]
    * "docker-compose.yml" --->>> this satisfies [[Req_3: Provide a `docker-compose.yml` file to run the application and set a custom string using an environment variable.]] & it contains a section for Nginx service in this file, thus it also satisfies [[Req_6: Idea: Try the [nginx](https://hub.docker.com/_/nginx) or [traefik](https://hub.docker.com/_/traefik) Docker 
    image ran from the same Docker Compose file as the application.]]
